@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AR Furniture — Phase 5</title>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#111" />
+  <link rel="icon" href="data:,">
+
+  <!-- model-viewer -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
+
+  <link rel="stylesheet" href="fur.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">AR Furniture</div>
+    <div class="spacer"></div>
+    <button id="installBtn" class="btn subtle">⬇ Install</button>
+    <button id="themeToggle" class="btn subtle">🌙</button>
+  </header>
+  <main>
+    <!-- Default model loaded -->
+    <model-viewer id="viewer"
+      src="models/couch_large.glb"
+      ar
+      ar-modes="scene-viewer webxr quick-look"
+      camera-controls
+      shadow-intensity="1"
+      tone-mapping="neutral"
+      alt="AR Model">
+    </model-viewer>
+
+    <!-- Top Toolbar -->
+    <div class="toolbar top-left">
+      <button id="snapshotBtn" class="btn">📸 Snapshot</button>
+      <button id="galleryBtn" class="btn">🖼 Gallery</button>
+      <button id="rotateBtn" class="btn">🔄 Rotate</button>
+    </div>
+
+    <!-- Bottom Toolbar (all models listed here) -->
+    <div class="toolbar bottom">
+      <div class="toolbar bottom">
+  <button class="btn model" data-model="models/couch_medium.glb">🛋 Couch Medium</button>
+  <button class="btn model" data-model="models/wooden_bed.glb">🛏 Wooden Bed</button>
+      <button id="biggerBtn" class="btn">➕</button>
+      <button id="smallerBtn" class="btn">➖</button>
+    </div>
+  </main>
+
+  <!-- Modal Gallery -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>Snapshots</h3>
+        <div class="spacer"></div>
+        <button id="clearGallery" class="btn subtle">🗑 Clear</button>
+        <button id="closeModal" class="btn subtle">✖</button>
+      </div>
+      <div id="grid" class="grid"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="fur.js"></script>
+</body>
+</html>

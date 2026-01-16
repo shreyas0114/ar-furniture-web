@@ -1,0 +1,72 @@
+:root {
+  --bg: #111;
+  --fg: #fff;
+  --muted: #ffffff1a;
+  --accent: #4ade80;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+header {
+  position: sticky; top: 0;
+  display: flex; align-items: center; gap: 8px;
+  background: #00000080; backdrop-filter: blur(8px);
+  padding: 10px 12px; z-index: 50;
+}
+.brand { font-weight: 700; letter-spacing: .3px; }
+.spacer { flex: 1; }
+
+.btn {
+  background: var(--muted);
+  color: var(--fg);
+  border: none; border-radius: 10px;
+  padding: 8px 12px; cursor: pointer;
+}
+.btn:hover { background: #ffffff2e; }
+.subtle { background: transparent; }
+
+main { position: relative; }
+model-viewer { width: 100vw; height: calc(100vh - 56px); display: block; }
+
+.toolbar {
+  position: absolute; display: flex; gap: 8px; z-index: 20;
+  background: #00000060; padding: 8px; border-radius: 12px; backdrop-filter: blur(8px);
+}
+.top-left { top: 12px; left: 12px; }
+.bottom { left: 50%; transform: translateX(-50%); bottom: 14px; }
+
+.modal.hidden { display: none; }
+.modal {
+  position: fixed; inset: 0; background: #0008; display: grid; place-items: center; z-index: 60;
+}
+.modal-card {
+  width: min(900px, 92vw); max-height: 80vh; overflow: hidden;
+  background: #1b1b1b; border-radius: 16px; display: flex; flex-direction: column;
+}
+.modal-head { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #2a2a2a; }
+.grid {
+  padding: 12px; display: grid; gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  overflow: auto;
+}
+.grid img { width: 100%; border-radius: 10px; display: block; }
+
+.toast {
+  position: fixed; left: 50%; transform: translateX(-50%);
+  bottom: 20px; background: #000c; color: #fff;
+  padding: 8px 12px; border-radius: 8px; z-index: 70;
+}
+.toast.hidden { display: none; }
+
+/* Light theme */
+.light {
+  --bg: #f5f5f5;
+  --fg: #111;
+  --muted: #00000014;
+}
